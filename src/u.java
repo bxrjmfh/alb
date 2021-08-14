@@ -4,11 +4,13 @@ public class u
 	{
 		System.out.println("Hello World!");
 	}
-	//dog[] dogs=dog[8];
+	//
 }
 
 class dog
 {
+	dog oi=new dog();
+	
 	private int length;
 	private int weight;
 	private String name;
