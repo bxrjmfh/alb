@@ -15,6 +15,10 @@ public class u
 		dogs[0].bark();
 		dogs[1].bark();
 		dogs[2].bark();
+		for(dog name:dogs)
+		{
+			name.bark();
+		}//for循环的新写法
 	}
 	
 }
