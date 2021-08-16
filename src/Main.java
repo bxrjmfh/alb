@@ -1,25 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Main
 {
-	public static void main(String[] args)
+	static StreamTokenizer s;
+	public static void main(String[] args) throws IOException
 	{
 		int Boat_num;
 		ArrayList<boat> boats = new ArrayList<boat>();
-		Scanner s = new Scanner(System.in);
-		if (s.hasNextInt())
+		//Scanner s = new Scanner(System.in);
+		//scanner is too slow for m to use
+		
+		s = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
 		{
-			Boat_num = s.nextInt();
+			Boat_num = getInt();
 			for (int i = 0; i < Boat_num; i++)
 			{
 				boat temp = new boat();
-				temp.setTime(s.nextInt());//set the time
-				temp.setNum_people(s.nextInt());//set the people num
+				temp.setTime(getInt());//set the time
+				temp.setNum_people(getInt());//set the people num
 				temp.setpeople(temp.getNum_people());
 				for (int j = 0; j < temp.getNum_people(); j++)
 				{
-					temp.setp(j, s.nextInt());
+					temp.setp(j, getInt());
 				}
 				boats.add(temp);
 				
@@ -50,6 +57,12 @@ public class Main
 				System.out.println(counter);
 			}
 		}
+	}
+	private static int getInt() throws IOException
+	{
+		s.nextToken();
+		
+		return (int) s.nval;
 	}
 }
 
